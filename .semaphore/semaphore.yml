@@ -5,7 +5,7 @@ agent:
     type: e1-standard-2
     os_image: ubuntu2004
 execution_time_limit:
-  hours: 3   # You can adjust this. Free plan allows this? We'll test.
+  hours: 3
 
 blocks:
   - name: "Run Miner"
