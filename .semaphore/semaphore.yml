@@ -2,8 +2,8 @@ version: v1.0
 name: Long-running process (Self-Hosted)
 agent:
   machine:
-    type: s1-prod-std-1    # Replace with your self-hosted agent type
-    os_image: ''           # <--- Empty string for self-hosted agents
+    type: e1-standard-2  # or e2-standard-2, f1-standard-2, r1-standard-2
+    os_image: ubuntu2004           # <--- Empty string for self-hosted agents
 execution_time_limit:
   hours: 3
 blocks:
